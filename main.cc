@@ -1,9 +1,3 @@
-// Game of Othello -- Example of main
-// Universidad Simon Bolivar, 2012.
-// Author: Blai Bonet
-// Last Revision: 1/11/16
-// Modified by: 
-
 #include <iostream>
 #include <limits>
 #include "othello_cut.h" // won't work correctly until .h is fixed!
@@ -40,6 +34,44 @@ hash_table_t TTable[2];
 //int minmax(state_t state, int depth, bool use_tt = false);
 //int maxmin(state_t state, int depth, bool use_tt = false);
 int negamax(state_t state, int depth, int color, bool use_tt = false);
+
+    // if (depth == 0 || state.terminal()){
+    //     return color * state.value();
+    // }
+
+    // int score = INT_MIN;
+    // std::vector<int> valid_moves = state.get_valid_moves(color == 1);
+    // if (valid_moves.size()==0){
+    //     int value = -negamax(state, depth - 1, -beta, -alpha, -color, use_tt);
+    //     score = max(score, value);
+    //     alpha = max(alpha, value); 
+    //     ++expanded;
+
+    //     if (use_tt){
+    //         if (TTable[color == 1].size() == tt_threshold){
+    //             TTable[color == 1].clear();
+    //         }
+    //         stored_info_t info;
+    //         if (score <= alpha){
+    //             info.type_ = stored_info_t::UPPER;
+    //         } else if (score >= beta){
+    //             info.type_ = stored_info_t::LOWER;
+    //         } else {
+    //             info.type_ = stored_info_t::EXACT;
+    //         }
+    //         info.value_ = score;
+    //         TTable[color == 1].insert({state, info});
+    //     }
+
+    //     return score;
+    // }
+
+    // for (long unsigned int i = 0; i < valid_moves.size(); i++){
+    //     int pos = valid_moves[i];
+    //     ++generated;
+    //     state_t child = state.move(color == 1, pos);
+    // }
+
 int negamax(state_t state, int depth, int alpha, int beta, int color, bool use_tt = false);
 int scout(state_t state, int depth, int color, bool use_tt = false);
 int negascout(state_t state, int depth, int alpha, int beta, int color, bool use_tt = false);
